@@ -1,0 +1,53 @@
+<nav
+  *ngIf="componentConfig.renderNavbar || typeUser"
+  id="navbar"
+  class="navbar navbar-expand-lg navbar-dark bg-dark"
+  style="position:fixed;width:100%;z-index:2;">
+
+  <div class="tabs">
+    <input type="radio" id="tab1" name="tab-control">
+    <input type="radio" id="tab2" name="tab-control">
+    <input type="radio" id="tab3" name="tab-control">
+    <input type="radio" id="tab4" name="tab-control">
+
+    <ul *ngIf="userGlobalConfig.typeUser === 'student' || typeUser === 'student'">
+      <li
+        *ngFor="let navbarItem of userGlobalConfig.studentNavbarItems; let i = index;"
+        (click)="action(navbarItem)">
+
+        <label for="tab{{i+1}}" role="button">
+          <img src="{{navbarItem.icon}}" width="24" height="24" alt="Icono {{navbarItem.title}}" />
+            <br/>
+            <span>{{ navbarItem.title }}</span>
+        </label>
+      </li>
+    </ul>
+
+    <ul *ngIf="userGlobalConfig.typeUser === 'administrator' || typeUser === 'administrator'">
+      <li *ngFor="let navbarItem of userGlobalConfig.administratorNavbarItems; let i = index;">
+
+        <label *ngIf="i !== 2;else modal" for="tab{{i+1}}" role="button" (click)="action(navbarItem)">
+          <img src="{{navbarItem.icon}}" width="24" height="24" alt="Icono {{navbarItem.title}}" />
+          <br/>
+          <span>{{ navbarItem.title }}</span>
+        </label>
+        <ng-template #modal>
+          <label for="tab{{i+1}}" role="button" (click)="openBarSearchStudents(content)">
+            <img src="{{navbarItem.icon}}" width="24" height="24" alt="Icono {{navbarItem.title}}" />
+            <br/>
+            <span>{{ navbarItem.title }}</span>
+          </label>
+        </ng-template>
+      </li>
+    </ul>
+
+    <ng-template class="modal-user" #content let-modal>
+      <app-user-search></app-user-search>
+    </ng-template>
+
+    <div class="slider">
+      <div class="indicator"></div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

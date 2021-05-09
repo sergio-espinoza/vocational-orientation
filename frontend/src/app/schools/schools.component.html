@@ -1,0 +1,47 @@
+<div class="py-2"></div>
+<div class="container" style="padding-top:66px;">
+  <div class="row">
+    <div class="col-lg-2 col-md-1"></div>
+
+    <div class="col-lg-8 col-md-10">
+      <h4><small>Colegios</small></h4>
+      <div class="table table-responsive table-striped">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Nombre</th>
+              <th class="text-center">Ubigeo</th>
+              <th class="text-center">Clave</th>
+              <th class="text-center">Acrónimo</th>
+              <th class="text-center">Total</th>
+              <th class="text-center">Accion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let school of schools; let i = index;">
+              <td class="text-center">{{school._id}}</td>
+              <td class="text-center">{{school.name}}</td>
+              <td class="text-center">{{school.location}}</td>
+              <td class="text-center">{{school.code}}</td>
+              <td class="text-center">{{school.acronym}}</td>
+              <td class="text-center">{{school.total}}</td>
+
+              <td class="td-actions text-center">
+                <button rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"
+                  (click)="goToStudentsBySchool(school)">
+                  <i class="material-icons">X</i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="col-lg-2 col-md-1"></div>
+  </div>
+
+
+</div>

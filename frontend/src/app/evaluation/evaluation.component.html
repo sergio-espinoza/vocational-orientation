@@ -1,0 +1,30 @@
+<br />
+<br />
+<br />
+
+<div class="container p-5" style="z-index:-1">
+  <div class="stepwizard">
+    <div
+      style="background-color:lightblue;width:100%;overflow-x: scroll;">
+      <div class="stepwizard-step ml-1 mr-1" style="margin:0px 20px;"
+        *ngFor="let evaluation of evaluationValueService.evaluationSelected; let i = index;">
+        <a type="button" class="btn btn-primary btn-circle" (click)="indexQuestion = i">
+          {{i + 1}}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-5" *ngIf="evaluationType === 'vocationalOrientation'">
+    <app-vocational-orientation-evaluation [indexQuestion]="indexQuestion">
+    </app-vocational-orientation-evaluation>
+  </div>
+  <div class="p-5" *ngIf="evaluationType === 'multipleIntelligence'">
+    <app-multiple-intelligence-evaluation [indexQuestion]="indexQuestion">
+    </app-multiple-intelligence-evaluation>
+  </div>
+  <div class="p-5" *ngIf="evaluationType === 'characterological'">
+    <app-characterological-evaluation [indexQuestion]="indexQuestion">
+    </app-characterological-evaluation>
+  </div>
+</div>

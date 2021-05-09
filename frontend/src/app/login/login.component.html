@@ -1,0 +1,56 @@
+<div class="login-block" style="padding-top:100px">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 login-sec">
+        <h2 class="text-center">Ingresar</h2>
+
+        <div class="form-group">
+          <label>Usuario:
+            <span class="text-{{labelIdLogin.status}}"> {{labelIdLogin.message}}</span>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            minlength="8"
+            placeholder="Ingrese su usuario"
+            [(ngModel)]="dataLogin.id" />
+        </div>
+
+        <div class="form-group">
+          <label>Password:
+            <span class="text-{{labelPswLogin.status}}"> {{labelPswLogin.message}}</span>
+          </label>
+          <input
+            type="password"
+            class="form-control"
+            minlength="6"
+            placeholder="Ingrese su contraseña"
+            [(ngModel)]="dataLogin.password" />
+        </div>
+
+        <div>
+          <button class="btn btn-login" (click)="login()">Entrar</button>
+        </div>
+
+        <div class="pb-5">
+
+        </div>
+
+        <div>
+          <label class="pr-2">¿No tienes una cuenta?</label>
+          <button routerLink="/register" class="btn btn-register btn-sm">
+            Registrarse
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-7 banner-sec">
+        <div id="carouselExampleIndicators" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

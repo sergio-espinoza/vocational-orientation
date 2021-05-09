@@ -1,0 +1,44 @@
+<div>
+  {{indexQuestion}}
+  <div class="p-3" style="position:static; z-index:8;left:15px">
+    <button
+      [disabled]="!answer1 && !answer2 && !answer3"
+      class="btn btn-primary"
+      (click)="answerQuestion()">Next</button>
+  </div>
+  <mat-card>
+    <mat-card-content>
+      <section class="tp-section d-flex p-1">
+        <mat-checkbox
+          class="tp-margin pt-1"
+          [(ngModel)]="answer1"
+          (ngModelChange)="doAnswer1()">
+        </mat-checkbox>
+        <div class="pl-3 text-wrap">
+          {{evaluationValueService.evaluationSelected[indexQuestion].answer1}}
+        </div>
+      </section>
+      <section class="tp-section d-flex p-1">
+        <mat-checkbox
+          class="tp-margin pt-1"
+          [(ngModel)]="answer2"
+          (ngModelChange)="doAnswer2()">
+        </mat-checkbox>
+        <div class="pl-3 text-wrap">
+          {{evaluationValueService.evaluationSelected[indexQuestion].answer2}}
+        </div>
+      </section>
+      <section class="tp-section d-flex p-1">
+        <mat-checkbox
+          class="tp-margin pt-1"
+          [(ngModel)]="answer3"
+          (ngModelChange)="doAnswer3()">
+        </mat-checkbox>
+        <div class="pl-3 text-wrap">
+          {{evaluationValueService.evaluationSelected[indexQuestion].answer3}}
+        </div>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>
+

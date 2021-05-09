@@ -1,0 +1,21 @@
+<div>
+  <button
+    class="btn btn-{{this.answers[this.indexQuestion] === '1'? 'success' : 'dark'}}"
+    (click)="questionResponse('1')">
+    {{evaluationValueService.evaluationSelected[indexQuestion]?.answer1}}
+  </button>
+  <br/>
+  <button
+    class="btn btn-{{this.answers[this.indexQuestion] === '2'? 'success' : 'dark'}}"
+    (click)="questionResponse('2')">
+    {{evaluationValueService.evaluationSelected[indexQuestion].answer2}}
+  </button>
+  <br/>
+  <button
+    *ngIf="indexQuestion === 25"
+    class="btn btn-{{this.answers[this.indexQuestion] === '3'? 'success' : 'dark'}}"
+    (click)="questionResponse('3')">
+    {{evaluationValueService.evaluationSelected[indexQuestion].answer3}}
+  </button>
+
+</div>
